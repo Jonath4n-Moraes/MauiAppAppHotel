@@ -3,27 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppAppHotel.Views.Sobre"
              Title="Sobre">
-    <Grid RowDefinitions="*, Auto">
+    <Grid RowDefinitions="*, auto, *, *">
 
         <VerticalStackLayout 
             Grid.Row="0" 
-            VerticalOptions="FillAndExpand">
+            VerticalOptions="Start">
 
-            <Label
+            <Button
                 Margin="10"
-                Text="App Desenvolvido por Jonathan Moraes em 2024"
-                HorizontalOptions="Center" 
-                VerticalOptions="Center" />
+                HorizontalOptions="Start" 
+                VerticalOptions="Start"
+                FontSize="20"
+                Clicked="Button_Clicked"
+                Text="Voltar" />
+
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1"
+                             Margin="10">
+            <Label
+                Text="Bem-vindo ao Hotel Sombras, o destino perfeito para os amantes do Halloween!&#10;&#10;Localizado em uma antiga mansão vitoriana, nosso hotel é famoso por suas decorações macabras e histórias de fantasmas. Durante todo o mês de outubro, transformamos nossa hospedagem em uma experiência aterrorizante, com festas temáticas, labirintos sombrios e a lenda da Noiva do Hotel, que vaga pelos corredores em busca de seu amor perdido.&#10;&#10;Seja para uma estadia repleta de sustos ou para desfrutar da nossa hospitalidade única, o Hotel Sombras oferece uma experiência inesquecível. Reserve agora e descubra o lado mais assustador do aconchego!" />
             
         </VerticalStackLayout>
 
-        <Label
-            Grid.Row="1"
-            Margin="10"
-            FontFamily="Henny Penny"
-            Text="Happy Halloween"
-            HorizontalOptions="Center"
-            VerticalOptions="EndAndExpand" />
+        <VerticalStackLayout Grid.Row="2"
+                             VerticalOptions="CenterAndExpand">
+            <Label
+                FontFamily="Henny Penny"
+                HorizontalOptions="Center"
+                FontSize="20"
+                Text="Happy Halloween ╰（‵□′）╯"/>
+            
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="3"
+                             VerticalOptions="End" 
+                             Margin="10">
+
+            <Label
+                HorizontalOptions="Center" 
+                FontSize="15"
+                Text="App Desenvolvido por Jonathan Moraes em 2024" />
+
+        </VerticalStackLayout>
 
     </Grid>
 </ContentPage>
