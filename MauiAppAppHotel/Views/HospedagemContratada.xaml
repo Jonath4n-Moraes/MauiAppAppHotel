@@ -19,12 +19,12 @@
             <Grid ColumnDefinitions="*, *">
                  <HorizontalStackLayout Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
                     <Label Text="Adultos: " HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-                    <Label Text="2" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                    <Label x:Name="QuantidadeAdultosLabel" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 
                 <HorizontalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
                     <Label Text="Crianças: " HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-                    <Label Text="2" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                    <Label x:Name="QuantidadeCriancasLabel" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
             </Grid>
         </Frame>
@@ -37,9 +37,9 @@
                 <Label Grid.Row="0" Grid.Column="0" Text="Check-in" HorizontalOptions="Center" />
                 <Label Grid.Row="0" Grid.Column="1" Text="Check-out" HorizontalOptions="Center" />
                 <Label Grid.Row="0" Grid.Column="2" Text="Estadia" HorizontalOptions="Center" />
-                <Label Grid.Row="1" Grid.Column="0" Text="04/11/2024" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
-                <Label Grid.Row="1" Grid.Column="1" Text="14/11/2024" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
-                <Label Grid.Row="1" Grid.Column="2" Text="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="0" Text="10/11/2024" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="1" Text="11/11/2024" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="2" Text="1" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
                 
             </Grid>
             

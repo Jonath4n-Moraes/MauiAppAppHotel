@@ -2,15 +2,17 @@ namespace MauiAppAppHotel.Views
 {
     public partial class HospedagemContratada : ContentPage
     {
-        public HospedagemContratada(string descricaoQuarto, string imagemQuarto, string ValorDiariaAdulto, string ValorDiariaCrianca)
+        public HospedagemContratada(string descricaoQuarto, string imagemQuarto, string ValorDiariaAdulto, string ValorDiariaCrianca, int quantidadeAdultos, int quantidadeCriancas)
         {
             InitializeComponent();
 
-            // Exibir a descrição do quarto
             LabelQuarto.Text = descricaoQuarto;
 
-            // Definir a imagem do quarto
             ImageQuarto.Source = ImageSource.FromFile(imagemQuarto);
+
+            QuantidadeAdultosLabel.Text = quantidadeAdultos.ToString();
+            QuantidadeCriancasLabel.Text = quantidadeCriancas.ToString();
+
 
             double valorAdulto = double.TryParse(ValorDiariaAdulto, out double ValorA) ? ValorA : 0;
             double valorCrianca = double.TryParse(ValorDiariaCrianca, out double ValorC) ? ValorC : 0;

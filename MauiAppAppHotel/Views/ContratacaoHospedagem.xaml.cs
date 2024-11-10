@@ -1,6 +1,6 @@
 namespace MauiAppAppHotel.Views;
 
-using MauiAppAppHotel.Models; // Se a classe Quarto estiver definida em Models
+using MauiAppAppHotel.Models;
 
 
 public partial class ContratacaoHospedagem : ContentPage
@@ -35,7 +35,14 @@ public partial class ContratacaoHospedagem : ContentPage
 
         if(quartoSelecionado != null)
         {
-            App.Current.MainPage = new HospedagemContratada(quartoSelecionado.Descricao, quartoSelecionado.Imagem, quartoSelecionado.ValorDiariaAdulto.ToString(), quartoSelecionado.ValorDiariaCrianca.ToString());
+            int quantidadeAdultos = (int)stp_adultos.Value;
+            int quantidadeCriancas = (int)stp_criancas.Value;
+
+            DateTime checkin = dtpck_checkin.Date;
+            DateTime checkout = dtpck_checkout.Date;
+
+
+            App.Current.MainPage = new HospedagemContratada(quartoSelecionado.Descricao, quartoSelecionado.Imagem, quartoSelecionado.ValorDiariaAdulto.ToString(), quartoSelecionado.ValorDiariaCrianca.ToString(), quantidadeAdultos, quantidadeCriancas);
         } else
         {
            await DisplayAlert("Atenção", "Selecione um quarto!", "OK");
@@ -68,8 +75,8 @@ public partial class ContratacaoHospedagem : ContentPage
         }
         else
         {
-            PrecoAdultoLabel.Text = "0";
-            PrecoCriancaLabel.Text = "0";
+            PrecoAdultoLabel.Text = "R$ 0,00";
+            PrecoCriancaLabel.Text = "R$ 0,00";
         }
 
     }
