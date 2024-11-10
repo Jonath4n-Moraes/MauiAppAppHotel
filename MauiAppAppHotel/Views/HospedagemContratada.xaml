@@ -8,7 +8,7 @@
 
     <VerticalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
 
-        <Label x:Name="LabelQuarto"
+        <Label Text="{Binding QuartoSelecionado.Descricao}"
                TextColor="{StaticResource Primary}"
                FontFamily="Henny Penny"
                FontSize="50"
@@ -19,12 +19,12 @@
             <Grid ColumnDefinitions="*, *">
                  <HorizontalStackLayout Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
                     <Label Text="Adultos: " HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-                    <Label x:Name="QuantidadeAdultosLabel" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding QtdeAdultos}" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 
                 <HorizontalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
                     <Label Text="Crianças: " HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-                    <Label x:Name="QuantidadeCriancasLabel" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding QtdeCriancas}" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
             </Grid>
         </Frame>
@@ -37,9 +37,9 @@
                 <Label Grid.Row="0" Grid.Column="0" Text="Check-in" HorizontalOptions="Center" />
                 <Label Grid.Row="0" Grid.Column="1" Text="Check-out" HorizontalOptions="Center" />
                 <Label Grid.Row="0" Grid.Column="2" Text="Estadia" HorizontalOptions="Center" />
-                <Label Grid.Row="1" Grid.Column="0" Text="10/11/2024" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
-                <Label Grid.Row="1" Grid.Column="1" Text="11/11/2024" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
-                <Label Grid.Row="1" Grid.Column="2" Text="1" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Estadia}" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
                 
             </Grid>
             
@@ -48,24 +48,25 @@
         <Frame Margin="10" HorizontalOptions="Fill">
             
             <HorizontalStackLayout>
-                <Label x:Name="valotTotalLabel" />
+                <Label Text="Valor Total: " />
+                <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'}" />
             </HorizontalStackLayout>
             
         </Frame>
 
         <Frame Margin="10" HorizontalOptions="Fill">
-            
+
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-                
-                <Image x:Name="ImageQuarto"
+
+                <Image Source="{Binding imagemQuarto}"
                        Aspect="AspectFit"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        HeightRequest="200"
                        WidthRequest="300"/>
-                
+
             </HorizontalStackLayout>
-            
+
         </Frame>
 
         <Button Margin="10"

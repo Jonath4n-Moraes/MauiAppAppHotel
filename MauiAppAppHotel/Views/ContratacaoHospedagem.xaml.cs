@@ -28,26 +28,37 @@ public partial class ContratacaoHospedagem : ContentPage
 		App.Current.MainPage = new Sobre();
     }
 
-
     private async void Button_Clicked_Avancar_Contratatada(object sender, EventArgs e)
     {
-        var quartoSelecionado = pck_quarto.SelectedItem as Quarto;
-
-        if(quartoSelecionado != null)
+        try
         {
-            int quantidadeAdultos = (int)stp_adultos.Value;
-            int quantidadeCriancas = (int)stp_criancas.Value;
+            var quartoSelecionado = pck_quarto.SelectedItem as Quarto;
+            if (quartoSelecionado != null)
+            {
+                Hospedagem h = new Hospedagem
+                {
+                    QuartoSelecionado = quartoSelecionado,
+                    QtdeAdultos = Convert.ToInt32(stp_adultos.Value),
+                    QtdeCriancas = Convert.ToInt32(stp_criancas.Value),
+                    DataCheckIn = dtpck_checkin.Date,
+                    DataCheckOut = dtpck_checkout.Date,
+                    imagemQuarto = quartoSelecionado.Imagem
+                };
 
-            DateTime checkin = dtpck_checkin.Date;
-            DateTime checkout = dtpck_checkout.Date;
-
-
-            App.Current.MainPage = new HospedagemContratada(quartoSelecionado.Descricao, quartoSelecionado.Imagem, quartoSelecionado.ValorDiariaAdulto.ToString(), quartoSelecionado.ValorDiariaCrianca.ToString(), quantidadeAdultos, quantidadeCriancas);
-        } else
-        {
-           await DisplayAlert("Atenção", "Selecione um quarto!", "OK");
+                await Navigation.PushAsync(new HospedagemContratada
+                {
+                    BindingContext = h
+                });
+            }
+            else
+            {
+                await DisplayAlert("Atenção", "Selecione um quarto!", "OK");
+            }
         }
-                
+        catch (Exception ex)
+        {
+            await DisplayAlert("Ops", ex.Message, "Ok");
+        }
     }
 
     private void dtpck_checkin_DateSelected(object sender, DateChangedEventArgs e)
