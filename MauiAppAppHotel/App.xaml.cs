@@ -32,7 +32,7 @@ namespace MauiAppAppHotel
             new Quarto()
             {
                 Descricao = "Suíte Crise",
-                ValorDiariaAdulto = 25,
+                ValorDiariaAdulto = 25.00,
                 ValorDiariaCrianca = 12.5,
                 Imagem = "suite_crise.jpeg"
             }
