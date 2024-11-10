@@ -2,11 +2,79 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppAppHotel.Views.HospedagemContratada"
-             Title="HospedagemContratada">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="HospedagemContratada"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Black">
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+        <Label x:Name="LabelQuarto"
+               TextColor="{StaticResource Primary}"
+               FontFamily="Henny Penny"
+               FontSize="50"
+               HorizontalTextAlignment="Center"/>
+
+        <Frame Margin="10" HorizontalOptions="Fill">
+            
+            <Grid ColumnDefinitions="*, *">
+                 <HorizontalStackLayout Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="Adultos: " HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                    <Label Text="2" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                
+                <HorizontalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="Crianças: " HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                    <Label Text="2" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Grid>
+        </Frame>
+
+        <Frame Margin="10" HorizontalOptions="Fill">
+            
+            <Grid ColumnDefinitions="*, *, *"
+                  RowDefinitions="auto, auto">
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Check-in" HorizontalOptions="Center" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Check-out" HorizontalOptions="Center" />
+                <Label Grid.Row="0" Grid.Column="2" Text="Estadia" HorizontalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="0" Text="04/11/2024" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="1" Text="14/11/2024" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="2" Text="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                
+            </Grid>
+            
+        </Frame>
+
+        <Frame Margin="10" HorizontalOptions="Fill">
+            
+            <HorizontalStackLayout>
+                <Label x:Name="valotTotalLabel" />
+            </HorizontalStackLayout>
+            
+        </Frame>
+
+        <Frame Margin="10" HorizontalOptions="Fill">
+            
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                
+                <Image x:Name="ImageQuarto"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HeightRequest="200"
+                       WidthRequest="300"/>
+                
+            </HorizontalStackLayout>
+            
+        </Frame>
+
+        <Button Margin="10"
+                HorizontalOptions="Center"
+                Background="{StaticResource Primary}"
+                TextColor="White"
+                Clicked="Button_Clicked_Voltar_Hosp_Contr"
+                Text="Voltar" />
+        
     </VerticalStackLayout>
+    
 </ContentPage>

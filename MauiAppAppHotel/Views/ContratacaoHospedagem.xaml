@@ -4,7 +4,7 @@
              x:Class="MauiAppAppHotel.Views.ContratacaoHospedagem"
              Title="ContratacaoHospedagem"
              NavigationPage.HasNavigationBar="False"
->
+             BackgroundColor="Black">
     
     <VerticalStackLayout VerticalOptions="CenterAndExpand"
                          Padding="10"
@@ -21,27 +21,30 @@
 
                 <VerticalStackLayout>
                     <Grid RowDefinitions="Auto, Auto"
-                          ColumnDefinitions="*, *, 2*"
-                          >
+                          ColumnDefinitions="*, *, 2*" >
 
                         <Label Grid.Row="0" Grid.Column="0"
+                               VerticalOptions="Center"
                                Text="Adultos:" />
 
                         <Label Grid.Row="0" Grid.Column="1"
+                               VerticalOptions="Center"
                                TextColor="{StaticResource Primary}"
                                Text="{Binding Value}"
                                BindingContext="{x:Reference stp_adultos}"/>
 
                         <Stepper Grid.Row="0" Grid.Column="2"
                                  x:Name="stp_adultos"
-                                 Minimum="0"
+                                 Minimum="1"
                                  Maximum="10"
                                  Increment="1" />
 
                         <Label Grid.Row="1" Grid.Column="0"
+                               VerticalOptions="Center"
                                Text="Crianças: " />
 
                         <Label Grid.Row="1" Grid.Column="1"
+                               VerticalOptions="Center"
                                TextColor="{StaticResource Primary}"
                                Text="{Binding Value}"
                                BindingContext="{x:Reference stp_criancas}"/>
@@ -55,19 +58,51 @@
                 </VerticalStackLayout>
             </Frame>
         
-            <Frame Margin="10"
-                   Padding="10">
-                    <VerticalStackLayout>
-                        <Label Text="Escolha sua Suíte" />
+            <Frame Margin="10">
+                <VerticalStackLayout>
+                    <Label Text="Escolha sua Suíte" />
 
-                        <Picker x:Name="pck_quarto"
-                        Title="Selecione sua Acomodação" />
+                    <Picker x:Name="pck_quarto"
+                            Title="Selecione sua Acomodação"
+                            ItemDisplayBinding="{Binding Descricao}"
+                            SelectedIndexChanged="pck_quarto_SelectedIndexChanged" />
 
+                    <VerticalStackLayout Margin="0,5,0,0">
+                        
+                        <Grid ColumnDefinitions="Auto, Auto"
+                              RowDefinitions="Auto, Auto">
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Margin="0,5,0,0"
+                                   Text="Valor Diária Adulto: " />
+
+                            <Label Grid.Column="0"
+                                   Grid.Row="1"
+                                   Margin="0,5,0,0"
+                                   Text="Valor Diária Criança: " />
+
+                            <Label Grid.Column="1"
+                                   Grid.Row="0"
+                                   Margin="0,5,0,0"
+                                   x:Name="PrecoAdultoLabel" />
+
+
+                            <Label Grid.Column="1"
+                                   Grid.Row="1"
+                                   Padding="5"
+                                   Margin="0,0,0,0"
+                                   x:Name="PrecoCriancaLabel"/>
+
+                        </Grid>
                     </VerticalStackLayout>
+
+                </VerticalStackLayout>
+               
             </Frame>
 
             <Frame Padding="10" 
-                       Margin="10">
+                   Margin="10">
                 <VerticalStackLayout>
                         
                     <Label
@@ -75,23 +110,32 @@
                         Text="Periodo da Estadia" />
 
                     <HorizontalStackLayout >
-                                <Label Text="Check-in:" />
-                                <DatePicker x:Name="dtpck_checkin"
-                                            Format="dd/MM/yyyy" />
+                        <Label Text="Check-in:"
+                               VerticalOptions="Center"
+                               Margin="0,0,5,0" />
+                        
+                        <DatePicker x:Name="dtpck_checkin"
+                                    DateSelected="dtpck_checkin_DateSelected"
+                                    Format="dd/MM/yyyy" />
                     </HorizontalStackLayout>
 
                     <HorizontalStackLayout>
-                        <Label Text="Check-out:" />
+                        <Label Text="Check-out:"
+                               VerticalOptions="Center" 
+                               Margin="0,0,5,0" />
+                        
                         <DatePicker x:Name="dtpck_checkout"
                                     Format="dd/MM/yyyy" />
+                        
                     </HorizontalStackLayout>
                         
                 </VerticalStackLayout>
             </Frame>
 
             <Button Text="Avançar"
-                TextColor="White"
-                Margin="10"/>
+                    TextColor="White"
+                    Margin="10"
+                    Clicked="Button_Clicked_Avancar_Contratatada"/>
 
             <Button 
                 Text="Sobre"
